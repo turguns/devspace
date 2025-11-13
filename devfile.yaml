@@ -1,0 +1,17 @@
+schemaVersion: 2.2.2
+metadata:
+  name: gpu-devspace2
+components:
+  - name: tools
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel9@sha256:8f980b826039e2a36855a3d19ce163bb8762ff10a34c885ad744698878168b57
+      memoryLimit: 4Gi
+      cpuLimit: 2000m
+      mountSources: true
+    attributes:
+      container-overrides:
+        resources:
+          limits:
+            nvidia.com/mig-1g.12gb: '1'
+          requests:
+            nvidia.com/mig-1g.12gb: '1'
