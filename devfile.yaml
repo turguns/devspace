@@ -6,7 +6,7 @@ components:
     container:
       image: registry.redhat.io/devspaces/udi-rhel9@sha256:8f980b826039e2a36855a3d19ce163bb8762ff10a34c885ad744698878168b57
       memoryLimit: 4Gi
-      cpuLimit: 2000m
+      cpuLimit: 500m
       mountSources: true
       volumeMounts:
         - name: m2
