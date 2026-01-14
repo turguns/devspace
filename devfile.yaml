@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: gpu-devspace2
+  name: volume-devspace2
 components:
   - name: tools
     container:
@@ -8,10 +8,9 @@ components:
       memoryLimit: 4Gi
       cpuLimit: 2000m
       mountSources: true
-    attributes:
-      container-overrides:
-        resources:
-          limits:
-            nvidia.com/mig-1g.12gb: '1'
-          requests:
-            nvidia.com/mig-1g.12gb: '1'
+      volumeMounts:
+        - name: m2
+          path: /data
+  - name: m2
+    volume:
+      size: 1G
