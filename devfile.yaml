@@ -13,4 +13,7 @@ components:
           path: /data
   - name: m2
     volume:
-      size: 1G
+      ephemeral: false
+      source:
+        persistentVolumeClaim:
+          claimName: shared-devspaces-pvc
