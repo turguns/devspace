@@ -13,5 +13,4 @@ components:
           path: /data
   - name: m2
     volume:
-      ephemeral: false
-      claimName: shared-devspaces-pvc
+      size: 1Gi
