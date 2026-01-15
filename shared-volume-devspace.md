@@ -103,12 +103,12 @@ spec:
     storage: 3Gi
   csi:
     driver: smb.csi.k8s.io
-    volumeHandle: nas01.ad.av360.org/temporary#shared-pv##
+    volumeHandle: nas.example.com/temporary#shared-pv##
     volumeAttributes:
       csi.storage.k8s.io/pv/name: shared-pv
       csi.storage.k8s.io/pvc/name: shared
-      csi.storage.k8s.io/pvc/namespace: che-kube-admin-devspaces-imov3b
-      source: //nas01.ad.av360.org/temporary
+      csi.storage.k8s.io/pvc/namespace: user1-devspaces
+      source: //nas.example.com/temporary
       subdir: shared-pv
     nodeStageSecretRef:
       name: smbcreds
@@ -143,12 +143,12 @@ spec:
     storage: 3Gi
   csi:
     driver: smb.csi.k8s.io
-    volumeHandle: nas01.ad.av360.org/temporary#shared-pv##
+    volumeHandle: nas.example.com/temporary#shared-pv##
     volumeAttributes:
       csi.storage.k8s.io/pv/name: shared-pv2
       csi.storage.k8s.io/pvc/name: shared
-      csi.storage.k8s.io/pvc/namespace: che-kube-admin-devspaces-imov3b
-      source: //nas01.ad.av360.org/temporary
+      csi.storage.k8s.io/pvc/namespace: user2-devspaces
+      source: //nas.example.com/temporary
       subdir: shared-pv
     nodeStageSecretRef:
       name: smbcreds
@@ -182,7 +182,7 @@ Each namespace has:
 
 * * *
 
-### Namespace: `user1-devspaces-imov3b`
+### Namespace: `user1-devspaces`
 
 ```
 kind: PersistentVolumeClaim
@@ -257,10 +257,10 @@ testfile222
 
 ```
 
-Namespace user1-devspaces-imov3b:
+Namespace user1-devspaces:
 ```
 oc exec workspacef27ef0db39d740fb-6559dbc5df-f8w6t \
-  -c tools -n user1-devspaces-imov3b -- ls /shared
+  -c tools -n user1-devspaces -- ls /shared
 Output:
 testfile111
 testfile222
